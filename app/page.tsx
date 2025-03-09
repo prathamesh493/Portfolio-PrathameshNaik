@@ -74,7 +74,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="h-screen flex flex-col items-center justify-center px-10 md:px-20">
+      <section id="about" className="h-auto flex flex-col items-center justify-center px-10 md:px-20">
         <h2 className="text-4xl font-bold text-center mb-10">About Me</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -84,37 +84,36 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center w-full"
           >
             <Image
               src="/images/Photo.jpeg"
               alt="Prathamesh Naik"
-              width={350}
-              height={350}
+              width={300}
+              height={300}
               className="rounded-xl shadow-lg"
             />
-            <p className="text-justify mt-6 text-gray-280">
-            I am a Computer Engineer with expertise in Full-Stack Development, AI/ML, and Blockchain.  
-            My passion lies in building cutting-edge, intelligent systems that revolutionize industries.  
-            From decentralized healthcare solutions to financial AI chatbots, I develop technology that makes an impact.  
-            As a hackathon finalist and problem-solver, I thrive in high-pressure environments, tackling real-world challenges with scalable, innovative solutions.
-      
+            <p className="text-justify mt-4 text-gray-300 max-w-md leading-relaxed">
+              I am a Computer Engineer with expertise in Full-Stack Development, AI/ML, and Blockchain.  
+              My passion lies in building cutting-edge, intelligent systems that revolutionize industries.  
+              From decentralized healthcare solutions to financial AI chatbots, I develop technology that makes an impact.  
+              As a hackathon finalist and problem-solver, I thrive in high-pressure environments, tackling real-world challenges with scalable, innovative solutions.
             </p>
           </motion.div>
 
-          {/* Right: Skills Image */}
+          {/* Right: Skills Image (Stacked on Mobile) */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="flex justify-center"
+            className="flex justify-center w-full md:mt-0 mt-10"
           >
             <Image
               src="/images/skills.png"
               alt="Skills"
-              width={500}
-              height={800}
+              width={400}
+              height={300}
               className="rounded-lg shadow-lg"
             />
           </motion.div>
@@ -123,9 +122,9 @@ export default function Home() {
 
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-800 px-10 md:px-20">
+      <section id="projects" className="py-20 bg-gray-800 px-10 md:px-20 mt-20 md:mt-40">
         <h2 className="text-4xl font-bold text-center mb-10">Projects</h2>
-        
+
         <div className="space-y-20">
           {projects.map((project, index) => (
             <motion.div
@@ -136,7 +135,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="flex flex-col md:flex-row items-center gap-8"
             >
-              <div className={`md:w-1/2 ${index % 2 === 0 ? "" : "md:order-2"}`}>
+              <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "" : "md:order-2"}`}>
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -145,7 +144,7 @@ export default function Home() {
                   className="rounded-lg shadow-lg"
                 />
               </div>
-              <div className="md:w-1/2 space-y-4">
+              <div className="w-full md:w-1/2 space-y-4">
                 <h3 className="text-3xl font-semibold">{project.title}</h3>
                 <p>{project.description}</p>
                 <div className="flex gap-4">
@@ -181,21 +180,21 @@ const projects = [
     title: "HealthLedger",
     description: "A decentralized healthcare application using Hyperledger Fabric & Express.js. Implements tamper-proof medical records with blockchain technology.",
     image: "/images/healthledger.png",
-    demo: "#",
-    github: "#",
+    demo: "https://health-ledger-red.vercel.app/",
+    github: "https://github.com/prathamesh493/health-ledger",
   },
   {
     title: "BloomBuddy",
     description: "An IoT-powered plant care system using MERN stack & Llama 3 chatbot. Features real-time monitoring and automated watering.",
     image: "/images/bloombuddy.png",
     demo: "https://bloombuddy.onrender.com/",
-    github: "https://github.com/prathamesh493/BloomBuddy",
+    github: "https://github.com/GouravMidya/Plant-Care-Automation",
   },
   {
     title: "Wealth Wizard",
     description: "A financial management system with an AI chatbot powered by Phi-3. Features credit score tracking, loan planning, and real-time portfolio updates.",
     image: "/images/wealthwizard.png",
     demo: "#",
-    github: "#",
+    github: "https://github.com/GouravMidya/ondc-hackathon-negotiation-engine",
   }
 ];
